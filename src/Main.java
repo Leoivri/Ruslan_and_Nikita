@@ -9,7 +9,7 @@ public class Main {
         age = 56;
         System.out.println("Возраст: " + age + ".");
 
-        age =5;
+        age =57;
         System.out.println(age);
 
     }
