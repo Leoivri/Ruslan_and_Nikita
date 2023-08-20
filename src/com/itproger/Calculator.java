@@ -9,11 +9,32 @@ public class Calculator {
         System.out.print("Введите выражение через пробел: ");
 
         Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        String buffer = "";
+        float number_1 = 0;
+        char operation = 0;
+        float number_2 = 0;
+        float answer;
 
-        int number_1 = scanner.nextInt();
-        char operation = scanner.next().charAt(0);
-        int number_2 = scanner.nextInt();
-        int answer = 0;
+        for (int i = 0; i < input.length(); i++) {
+
+            char simbol = input.charAt(i);
+
+            if (simbol == ' ') {
+                continue;
+            }
+            if (simbol == '+' || simbol == '-' || simbol == '*' || simbol == '/') {
+                operation = simbol;
+                number_1 = Float.parseFloat(buffer);
+                buffer = "";
+            }
+            else {
+                buffer += simbol;
+            }
+            if (i == input.length() -1) {
+                number_2 = Float.parseFloat(buffer);
+            }
+        }
 
         if (operation == '+') {
             answer = number_1 + number_2;
@@ -22,7 +43,6 @@ public class Calculator {
         else if (operation == '-') {
             answer = number_1 - number_2;
         }
-
         else if (operation == '*') {
             answer = number_1 * number_2;
         }
@@ -33,6 +53,12 @@ public class Calculator {
                 return;
             }
             answer = number_1 / number_2;
+        }
+
+        else {
+            answer = 0;
+            System.out.println("Некорректный ввод.");
+            return;
         }
 
         System.out.println("Ответ: " + answer);
