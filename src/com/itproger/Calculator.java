@@ -6,7 +6,7 @@ public class Calculator {
 
     public static void main(String[] args) {
 
-        System.out.print("Введите выражение через пробел: ");
+        System.out.print("Введите выражение: ");
 
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
